@@ -30,11 +30,11 @@ source=(
   "${url}/archive/refs/tags/v${pkgver}.tar.gz"
   "LICENSE"
 )
-noextract=(
-  "${_pkg}-${pkgver}.tgz"
-)
+# noextract=(
+#   "${_pkg}-${pkgver}.tar.gz"
+# )
 sha256sums=(
-  '374d48e72f1a16938b6c9b2d5fa6d1708c07685c2062024f8a47b124af7ea76c'
+  '26489e0739b4796b505c98c70a12ad5e0817a458a4e4f90fcfcc1b56769845ca'
   '48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0'
 )
 
@@ -59,6 +59,7 @@ package() {
       -g \
       --prefix \
         "${pkgdir}/usr" \
-      "${srcdir}/${_pkg}-${pkgver}.tgz"
+      "${srcdir}/${_pkg}.js-${pkgver}"
+      # "${srcdir}/${_pkg}-${pkgver}.tar.gz"
 }
 

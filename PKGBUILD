@@ -15,7 +15,7 @@ arch=(
 )
 _http="https://github.com"
 _ns="ethers-io"
-url="${_http}/${_ns}/${_pkg}"
+url="${_http}/${_ns}/${_pkg}.js"
 license=(
   "MIT"
 )
@@ -26,7 +26,8 @@ makedepends=(
   'npm'
 )
 source=(
-  "https://registry.npmjs.org/${_pkg}/${_pkg}-${pkgver}.tgz"
+  # "https://registry.npmjs.org/${_pkg}/${_pkg}-${pkgver}.tgz"
+  "${url}/archive/refs/tags/v${pkgver}.tar.gz"
   "LICENSE"
 )
 noextract=(

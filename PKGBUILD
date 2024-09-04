@@ -26,15 +26,15 @@ makedepends=(
   'npm'
 )
 source=(
-  # "https://registry.npmjs.org/${_pkg}/${_pkg}-${pkgver}.tgz"
-  "${url}/archive/refs/tags/v${pkgver}.tar.gz"
+  "https://registry.npmjs.org/${_pkg}/-/${_pkg}-${pkgver}.tgz"
+  # "${url}/archive/refs/tags/v${pkgver}.tar.gz"
   "LICENSE"
 )
-# noextract=(
-#   "${_pkg}-${pkgver}.tar.gz"
-# )
+noextract=(
+  "${_pkg}-${pkgver}.tgz"
+)
 sha256sums=(
-  '26489e0739b4796b505c98c70a12ad5e0817a458a4e4f90fcfcc1b56769845ca'
+  'f6c68a31f674674e4aed782c4f08d7a4ec8bc04738eee38d3e22ec94e129000e'
   '48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0'
 )
 
@@ -59,7 +59,7 @@ package() {
       -g \
       --prefix \
         "${pkgdir}/usr" \
-      "${srcdir}/${_pkg}.js-${pkgver}"
-      # "${srcdir}/${_pkg}-${pkgver}.tar.gz"
+      "${srcdir}/${_pkg}-${pkgver}.tgz"
+      # "${srcdir}/${_pkg}.js-${pkgver}"
 }
 

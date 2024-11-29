@@ -63,8 +63,17 @@ sha256sums=(
 
 package() {
   local \
-    _npmdir
-  cd "${srcdir}"
+    _npmdir \
+    _npm_opts=()
+  _npm_opts=(
+    # --user
+    #   root
+    -g
+    --prefix
+      "${pkgdir}/usr"
+  )
+  cd \
+    "${srcdir}"
   install \
     -Dm644 \
     LICENSE \
@@ -77,11 +86,7 @@ package() {
     "${_npmdir}"
   npm \
     install \
-      --user \
-        root \
-      -g \
-      --prefix \
-        "${pkgdir}/usr" \
+      "${_npm_opts[@]}" \
       "${srcdir}/${_pkg}-${pkgver}.tgz"
       # "${srcdir}/${_pkg}.js-${pkgver}"
 }

@@ -3,6 +3,9 @@
 # Maintainer: Truocolo <truocolo@aol.com>
 # Maintainer: Pellegrino Prevete (tallero) <pellegrinoprevete@gmail.com>
 
+_os="$( \
+  uname \
+    -o)"
 _source="npm"
 _node="nodejs"
 _pkg="base256-encoding"
@@ -24,6 +27,11 @@ license=(
 depends=(
   'nodejs'
 )
+if [[ "${_os}" == "GNU/Linux" ]]; then
+  depends+=(
+    'bdf-unifont'
+  )
+fi
 makedepends=(
   'npm'
 )
@@ -36,7 +44,7 @@ conflicts=(
 _npm="https://registry.npmjs.org"
 if [[ "${_source}" == "npm" ]]; then
   _src="${_npm}/${_pkg}/-/${_pkg}-${pkgver}.tgz"
-  _sum="ciao"
+  _sum='cd64198610e6f4f8fe20ce9811f18f11fb91dc39c711dee15783f1503c7b8b41'
 elif [[ "${_source}" == "github" ]]; then
   _src="${url}/archive/refs/tags/v${pkgver}.tar.gz"
   _sum="ciao"

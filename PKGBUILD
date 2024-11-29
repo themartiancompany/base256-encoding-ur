@@ -3,6 +3,8 @@
 # Maintainer: Truocolo <truocolo@aol.com>
 # Maintainer: Pellegrino Prevete (tallero) <pellegrinoprevete@gmail.com>
 
+_source="npm"
+_node="nodejs"
 _pkg="base256-encoding"
 pkgname="${_pkg}"
 pkgver=2.0.2
